@@ -23,6 +23,31 @@ module.exports = {
   },
   module: {
     rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader', options: {
+              sourceMap: true, modules: true,
+              localIdentName: '[local]_[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: 'postcss.config.js'  // create this file
+              }
+            }
+          },
+          {
+            loader: 'sass-loader', options: { sourceMap: true }
+          }
+        ]
+      },
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 
