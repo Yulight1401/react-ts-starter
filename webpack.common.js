@@ -13,7 +13,7 @@ module.exports = {
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "src/index.html"
+      template: "index.html"
     }),
     new webpack.HashedModuleIdsPlugin()
   ],
