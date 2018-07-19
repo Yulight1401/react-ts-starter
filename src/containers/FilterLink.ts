@@ -3,17 +3,17 @@ import { setVisibilityFilter } from '../actions/todos';
 import Link from '../components/Link';
 import { Dispatch } from '../../node_modules/redux';
 
-interface Todoprops {
+interface Linkprops {
   filter: string;
 }
 
-const mapStateToProps = (state: any, ownProps: Todoprops) => {
+const mapStateToProps = (state: any, ownProps: Linkprops) => {
   return {
     active: ownProps.filter === state.visibilityFilter,
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch, ownProps: Todoprops) => {
+const mapDispatchToProps = (dispatch: Dispatch, ownProps: Linkprops) => {
   return {
     onClick: () => {
       dispatch(setVisibilityFilter(ownProps.filter));

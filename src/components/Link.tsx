@@ -2,17 +2,14 @@ import * as React from 'react';
 
 interface Linkprops {
   active: boolean;
-  children: object;
-  onClick: (e: React.MouseEvent) => void;
+  children?: object;
+  onClick: () => void;
+  filter: string;
 }
 
-const link: React.StatelessComponent = ({
-  active,
-  children,
-  onClick,
-}: Linkprops): React.ReactElement<any> => {
-  if (active) {
-    return <span>{children}</span>;
+const link: React.StatelessComponent<Linkprops> = (props) => {
+  if (props.active) {
+    return <span>{props.children}</span>;
   }
 
   return (
@@ -20,10 +17,10 @@ const link: React.StatelessComponent = ({
       href=""
       onClick={(e) => {
         e.preventDefault();
-        onClick(e);
+        props.onClick();
       }}
     >
-      {children}
+      {props.children}
     </a>
   );
 };

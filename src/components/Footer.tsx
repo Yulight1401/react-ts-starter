@@ -1,7 +1,7 @@
 import * as React from 'react';
 import FilterLink from '../containers/FilterLink';
 
-const footer = () => (
+const footer: React.StatelessComponent = () => (
   <p>
     Show: <FilterLink filter="SHOW_ALL">All</FilterLink>
     {', '}

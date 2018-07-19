@@ -10,12 +10,14 @@ interface TodoListprops {
   onTodoClick: (t: number) => void;
 }
 
-const todoList: React.ComponentType<TodoListprops> = (props): React.ReactElement<any> => (
-  <ul>
-    {props.todos.map((todo: Todoprops) => (
-      <Todo key={todo.id} {...todo} onClick={() => props.onTodoClick(todo.id)} />
-    ))}
-  </ul>
-);
+const todoList: React.StatelessComponent<TodoListprops> = (props) => {
+  return (
+    <ul>
+      {props.todos.map((todo: Todoprops) => (
+        <Todo key={todo.id} {...todo} onClick={() => props.onTodoClick(todo.id)} />
+      ))}
+    </ul>
+  );
+};
 
 export default todoList;

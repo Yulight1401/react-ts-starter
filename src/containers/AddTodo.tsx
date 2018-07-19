@@ -7,7 +7,7 @@ let warpAddTodo: React.ComponentType<any> = ({
   dispatch,
 }: {
   dispatch: Dispatch,
-}): React.ReactElement<any> => {
+}) => {
   let input: HTMLInputElement;
 
   return (

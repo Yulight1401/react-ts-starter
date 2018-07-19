@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { toggleTodo } from '../actions/todos';
 import TodoList from '../components/TodoList';
-import { Dispatch, Store } from '../../node_modules/redux';
+import { Dispatch } from '../../node_modules/redux';
 
 interface todo {
   completed: boolean;

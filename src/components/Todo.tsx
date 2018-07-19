@@ -5,15 +5,17 @@ interface Todoprops {
   text: string;
 }
 
-const todo = ({ onClick, completed, text }: Todoprops): React.ReactElement<any> => (
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none',
-    }}
-  >
-    {text}
-  </li>
-);
+const todo: React.StatelessComponent<Todoprops> = (props) => {
+  return (
+    <li
+      onClick={props.onClick}
+      style={{
+        textDecoration: props.completed ? 'line-through' : 'none',
+      }}
+    >
+      {props.text}
+    </li>
+  );
+};
 
 export default todo;
