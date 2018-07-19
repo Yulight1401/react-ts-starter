@@ -7,7 +7,7 @@ export interface HelloProps {
 
 // 'HelloProps' describes the shape of props.
 // State is never set so we use the '{}' type.
-const STYLE = require('./hello.scss');
+const STYLE = require('../css/components/hello.scss');
 export class Hello extends React.Component<HelloProps, {}> {
   render() {
     return (

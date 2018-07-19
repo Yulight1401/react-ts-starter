@@ -3,5 +3,6 @@ module.exports = {
   parser: 'flow',
   singleQuote: true,
   trailingComma: 'all',
-  arrowParens: 'always'
+  arrowParens: 'always',
+  semi: true
 };

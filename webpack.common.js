@@ -7,19 +7,19 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: __dirname + '/dist',
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.html'
+      template: './src/apps/index.html',
     }),
-    new webpack.HashedModuleIdsPlugin()
+    new webpack.HashedModuleIdsPlugin(),
   ],
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   module: {
     rules: [
@@ -33,23 +33,23 @@ module.exports = {
             options: {
               sourceMap: true,
               modules: true,
-              localIdentName: '[local]_[hash:base64:5]'
-            }
+              localIdentName: '[local]_[hash:base64:5]',
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
               config: {
-                path: 'postcss.config.js' // create this file
-              }
-            }
+                path: 'postcss.config.js', // create this file
+              },
+            },
           },
           {
             loader: 'sass-loader',
-            options: { sourceMap: true }
-          }
-        ]
+            options: { sourceMap: true },
+          },
+        ],
       },
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       { test: /\.tsx?$/, use: ['awesome-typescript-loader', 'tslint-loader'] },
@@ -65,32 +65,32 @@ module.exports = {
             options: {
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 65,
               },
               // optipng.enabled: false will disable optipng
               optipng: {
-                enabled: false
+                enabled: false,
               },
               pngquant: {
                 quality: '65-90',
-                speed: 4
+                speed: 4,
               },
               gifsicle: {
-                interlaced: false
+                interlaced: false,
               },
               // the webp option will enable WEBP
               webp: {
-                quality: 75
-              }
-            }
-          }
-        ]
-      }
-    ]
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
-  }
+      chunks: 'all',
+    },
+  },
 };
